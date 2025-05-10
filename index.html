@@ -1,52 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Durger King Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .menu-item {
             transition: all 0.3s ease;
         }
+
         .menu-item:hover {
             transform: scale(1.05);
         }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- Header -->
-    <header class="bg-white shadow p-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-gray-800">Durger King</h1>
-        <div class="flex space-x-2">
-            <button class="text-gray-600 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                </svg>
-            </button>
-            <button class="text-gray-600 hover:text-gray-800">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
-    </header>
 
-    <!-- Menu Grid -->
-    <main class="container mx-auto p-4 grid grid-cols-3 gap-4">
-        <!-- Cake -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded absolute mt-2 ml-24">NEW</span>
-            <div class="text-5xl mb-2">🍰</div>
-            <h3 class="text-lg font-semibold">Cake</h3>
-            <p class="text-gray-600">* 1</p>
-            <button class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">BUY</button>
-        </div>
+<!-- Header -->
+<header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-gray-800">Durger King</h1>
+    <div class="flex space-x-2">
+        <!-- Icons (no functionality for now) -->
+        <button class="text-gray-600 hover:text-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+            </svg>
+        </button>
+        <button class="text-gray-600 hover:text-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
+    </div>
+</header>
 
-        <!-- Burger -->
+<!-- Menu Items Grid -->
+<main class="container mx-auto p-4 grid grid-cols-3 gap-4">
+    <!-- Har bir itemni yozishdan ko'ra qisqaroq qilish uchun misollar. Boshqa itemlar shunga o'xshash. -->
+    <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded absolute mt-2 ml-24">NEW</span>
+        <div class="text-5xl mb-2">🍰</div>
+        <h3 class="text-lg font-semibold">Cake</h3>
+        <p class="text-gray-600">$1.00</p>
+        <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+    </div>
+    <!-- Qo‘shimcha mahsulotlar shu tartibda qo‘shiladi... -->
+    <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+        <div class="text-5xl mb-2">🍔</div>
+        <h3 class="text-lg font-semibold">Burger</h3>
+        <p class="text-gray-600">$4.99</p>
+        <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
+            <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
+            <span class="text-lg count">1</span>
+            <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
+        </div>
+    </div>
+    <div>
         <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍔</div>
-            <h3 class="text-lg font-semibold">Burger</h3>
+            <div class="text-5xl mb-2">🍟</div>
+            <h3 class="text-lg font-semibold">Fries</h3>
             <p class="text-gray-600">$4.99</p>
             <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
                 <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
@@ -55,143 +68,78 @@
             </div>
         </div>
 
-        <!-- Fries -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍟</div>
-            <h3 class="text-lg font-semibold">Fries</h3>
-            <p class="text-gray-600">$1.49</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
+    </div>
 
-        <!-- Hotdog -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🌭</div>
-            <h3 class="text-lg font-semibold">Hotdog</h3>
-            <p class="text-gray-600">$3.49</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
+    <!-- Qo‘shimcha mahsulotlar shu tartibda qo‘shiladi... -->
+</main>
 
-        <!-- Taco -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🌮</div>
-            <h3 class="text-lg font-semibold">Taco</h3>
-            <p class="text-gray-600">$3.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
+<!-- Footer -->
+<footer class="p-4">
+    <button class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600">VIEW ORDER</button>
+</footer>
 
-        <!-- Pizza -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍕</div>
-            <h3 class="text-lg font-semibold">Pizza</h3>
-            <p class="text-gray-600">$7.99</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-
-        <!-- Donut -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍩</div>
-            <h3 class="text-lg font-semibold">Donut</h3>
-            <p class="text-gray-600">$1.49</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-
-        <!-- Popcorn -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍿</div>
-            <h3 class="text-lg font-semibold">Popcorn</h3>
-            <p class="text-gray-600">$1.99</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-
-        <!-- Coke -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🥤</div>
-            <h3 class="text-lg font-semibold">Coke</h3>
-            <p class="text-gray-600">$1.49</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-
-        <!-- Icecream -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍦</div>
-            <h3 class="text-lg font-semibold">Icecream</h3>
-            <p class="text-gray-600">$5.99</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-
-        <!-- Cookie -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍪</div>
-            <h3 class="text-lg font-semibold">Cookie</h3>
-            <p class="text-gray-600">$3.99</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-
-        <!-- Flan -->
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍮</div>
-            <h3 class="text-lg font-semibold">Flan</h3>
-            <p class="text-gray-600">$7.99</p>
-            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="p-4">
-        <button class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600">VIEW ORDER</button>
-    </footer>
-
-    <script>
+<script>
+    // Script faqat sahifa yuklangandan keyin ishlaydi
+    document.addEventListener('DOMContentLoaded', () => {
+        // Barcha menu itemlarni olayapmiz
         document.querySelectorAll('.menu-item').forEach(item => {
-            const addBtn = item.querySelector('button.bg-yellow-500.add-btn');
+            handleAddBtn(item);   // ADD tugmasini sozlash
+            handleCounter(item);  // + va - tugmalarni sozlash
+        });
+
+        // ADD tugmasi bosilganda counterga o‘tadi
+        function handleAddBtn(item) {
+            const addBtn = item.querySelector('.add-btn');
             if (addBtn) {
                 addBtn.addEventListener('click', () => {
+                    // Yangi counter blok yaratamiz
                     const counterContainer = document.createElement('div');
                     counterContainer.className = 'flex space-x-2 mt-2 counter-container';
-                    counterContainer.dataset.initial = 0;
+                    counterContainer.dataset.initial = 1;
                     counterContainer.innerHTML = `
-                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                        <span class="text-lg count">0</span>
-                        <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-                    `;
+              <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
+              <span class="text-lg count">1</span>
+              <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
+            `;
                     addBtn.replaceWith(counterContainer);
+                    handleCounter(item); // Yangi counterga eventlarni ulash
                 });
             }
+        }
 
-            const counterContainer = item.querySelector('.counter-container');
-            if (counterContainer) {
-                const removeBtn = counterContainer.querySelector('button.bg-red-500');
-                const addBtn = counterContainer.querySelector('button.bg-green-500');
-                const countSpan = counterContainer.querySelector('span.count');
-                let count = parseInt(countSpan.textContent) || parseInt(counterContainer.dataset.initial);
+        // + va - tugmalarga bosilganda ishlovchi funksiyalar
+        function handleCounter(item) {
+            const counter = item.querySelector('.counter-container');
+            if (!counter) return;
 
-                addBtn.addEventListener('click', () => {
-                    count++;
+            const minusBtn = counter.querySelector('button.bg-red-500');
+            const plusBtn = counter.querySelector('button.bg-green-500');
+            const countSpan = counter.querySelector('.count');
+
+            let count = parseInt(countSpan.textContent) || parseInt(counter.dataset.initial);
+
+            // + tugmasi bosilganda sonni oshiramiz
+            plusBtn.addEventListener('click', () => {
+                count++;
+                countSpan.textContent = count;
+            });
+
+            // - tugmasi bosilganda sonni kamaytiramiz va agar 0 bo‘lsa yana ADD tugmasiga qaytamiz
+            minusBtn.addEventListener('click', () => {
+                if (count > 0) {
+                    count--;
                     countSpan.textContent = count;
-                });
-
-                removeBtn.addEventListener('click', () => {
-                    if (count > 0) {
-                        count--;
-                        countSpan.textContent = count;
-                    }
-                    if (count === 0) {
-                        const addButton = document.createElement('button');
-                        addButton.className = 'mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn';
-                        addButton.textContent = 'ADD';
-                        counterContainer.replaceWith(addButton);
-                    }
-                });
-            }
-        });
-    </script>
+                }
+                if (count === 0) {
+                    const newAddBtn = document.createElement('button');
+                    newAddBtn.className = 'mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn';
+                    newAddBtn.textContent = 'ADD';
+                    counter.replaceWith(newAddBtn);
+                    handleAddBtn(item); // ADD tugmasiga event ulaymiz
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
