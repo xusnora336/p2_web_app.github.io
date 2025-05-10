@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FeedUp WebApp</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: sans-serif;
+    }
+    .search-box {
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .product-card {
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .fixed-order-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-3">
+    <!-- Logo -->
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <img src="img.png" alt="Logo" style="height: 40px;">
+    </div>
+
+
+
+
+
+    <!-- Carousel -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+  </div>
+
+  <!-- The slideshow/carousel -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/img.png" alt="Los Angeles" class="d-block" style="width:50%">
+      <div class="carousel-caption">
+        <h3>Los Angeles</h3>
+        <p>We had such a great time in LA!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/img.png" alt="Chicago" class="d-block" style="width:50%">
+      <div class="carousel-caption">
+        <h3>Chicago</h3>
+        <p>Thank you, Chicago!</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/img.png" alt="New York" class="d-block" style="width:50%">
+      <div class="carousel-caption">
+        <h3>New York</h3>
+        <p>We love the Big Apple!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls/icons -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+
+
+
+
+    <!-- Search -->
+    <div class="mb-3">
+      <input type="text" class="form-control search-box px-4 py-2" placeholder="🔍 Maxsulotlarni qidirish...">
+    </div>
+
+    <!-- Products -->
+    <div class="row g-3">
+      <div class="col-6">
+        <div class="card product-card p-2">
+          <img src="img_2.png" class="card-img-top" alt="Lavash">
+          <div class="card-body p-2">
+            <h6 class="card-title">Pishloqli Lavash (go‘shtli)</h6>
+            <p class="text-danger mb-1">UZS 42 000</p>
+            <button class="btn btn-success btn-sm w-100">Qo‘shish</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <div class="card product-card p-2">
+          <img src="" class="card-img-top" alt="Lavash">
+          <div class="card-body p-2">
+            <h6 class="card-title">Pishloqli Lavash (tovuq)</h6>
+            <p class="text-danger mb-1">UZS 42 000</p>
+            <button class="btn btn-success btn-sm w-100">Qo‘shish</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Fixed order bar -->
+  <div class="fixed-order-bar d-flex justify-content-between align-items-center">
+    <div>
+      <small class="text-muted">Umumiy summa</small><br>
+      <strong>UZS</strong>
+    </div>
+    <button class="btn btn-warning rounded-pill px-4">Buyurtma berish</button>
+  </div>
+<br>
+<br>
+<br>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
