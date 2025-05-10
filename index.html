@@ -1,145 +1,197 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>FeedUp WebApp</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: sans-serif;
-    }
-    .search-box {
-      border-radius: 15px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .product-card {
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .fixed-order-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #fff;
-      padding: 10px 20px;
-      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durger King Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
-<body>
-
-  <div class="container py-3">
-    <!-- Logo -->
-    <div class="d-flex justify-content-between align-items-center mb-2">
-      <img src="img.png" alt="Logo" style="height: 40px;">
-    </div>
-
-
-
-
-
-    <!-- Carousel -->
-<div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-  <!-- Indicators/dots -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-  </div>
-
-  <!-- The slideshow/carousel -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/img.png" alt="Los Angeles" class="d-block" style="width:50%">
-      <div class="carousel-caption">
-        <h3>Los Angeles</h3>
-        <p>We had such a great time in LA!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="images/img.png" alt="Chicago" class="d-block" style="width:50%">
-      <div class="carousel-caption">
-        <h3>Chicago</h3>
-        <p>Thank you, Chicago!</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="images/img.png" alt="New York" class="d-block" style="width:50%">
-      <div class="carousel-caption">
-        <h3>New York</h3>
-        <p>We love the Big Apple!</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Left and right controls/icons -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-</div>
-
-
-
-
-
-    <!-- Search -->
-    <div class="mb-3">
-      <input type="text" class="form-control search-box px-4 py-2" placeholder="🔍 Maxsulotlarni qidirish...">
-    </div>
-
-    <!-- Products -->
-    <div class="row g-3">
-      <div class="col-6">
-        <div class="card product-card p-2">
-          <img src="img_2.png" class="card-img-top" alt="Lavash">
-          <div class="card-body p-2">
-            <h6 class="card-title">Pishloqli Lavash (go‘shtli)</h6>
-            <p class="text-danger mb-1">UZS 42 000</p>
-            <button class="btn btn-success btn-sm w-100">Qo‘shish</button>
-          </div>
+<body class="bg-gray-100 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-gray-800">Durger King</h1>
+        <div class="flex space-x-2">
+            <button class="text-gray-600 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                </svg>
+            </button>
+            <button class="text-gray-600 hover:text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
-      </div>
+    </header>
 
-
-      <div class="col-6">
-        <div class="card product-card p-2">
-          <img src="" class="card-img-top" alt="Lavash">
-          <div class="card-body p-2">
-            <h6 class="card-title">Pishloqli Lavash (tovuq)</h6>
-            <p class="text-danger mb-1">UZS 42 000</p>
-            <button class="btn btn-success btn-sm w-100">Qo‘shish</button>
-          </div>
+    <!-- Menu Grid -->
+    <main class="container mx-auto p-4 grid grid-cols-3 gap-4">
+        <!-- Cake -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <span class="bg-green-500 text-white text-xs px-2 py-1 rounded absolute mt-2 ml-24">NEW</span>
+            <div class="text-5xl mb-2">🍰</div>
+            <h3 class="text-lg font-semibold">Cake</h3>
+            <p class="text-gray-600">* 1</p>
+            <button class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">BUY</button>
         </div>
-      </div>
-    </div>
-  </div>
 
+        <!-- Burger -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍔</div>
+            <h3 class="text-lg font-semibold">Burger</h3>
+            <p class="text-gray-600">$4.99</p>
+            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
+                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
+                <span class="text-lg count">1</span>
+                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
+            </div>
+        </div>
 
-  <!-- Fixed order bar -->
-  <div class="fixed-order-bar d-flex justify-content-between align-items-center">
-    <div>
-      <small class="text-muted">Umumiy summa</small><br>
-      <strong>UZS</strong>
-    </div>
-    <button class="btn btn-warning rounded-pill px-4">Buyurtma berish</button>
-  </div>
-<br>
-<br>
-<br>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Fries -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍟</div>
+            <h3 class="text-lg font-semibold">Fries</h3>
+            <p class="text-gray-600">$1.49</p>
+            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
+                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
+                <span class="text-lg count">1</span>
+                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
+            </div>
+        </div>
+
+        <!-- Hotdog -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🌭</div>
+            <h3 class="text-lg font-semibold">Hotdog</h3>
+            <p class="text-gray-600">$3.49</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Taco -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🌮</div>
+            <h3 class="text-lg font-semibold">Taco</h3>
+            <p class="text-gray-600">$3.99</p>
+            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
+                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
+                <span class="text-lg count">1</span>
+                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
+            </div>
+        </div>
+
+        <!-- Pizza -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍕</div>
+            <h3 class="text-lg font-semibold">Pizza</h3>
+            <p class="text-gray-600">$7.99</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Donut -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍩</div>
+            <h3 class="text-lg font-semibold">Donut</h3>
+            <p class="text-gray-600">$1.49</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Popcorn -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍿</div>
+            <h3 class="text-lg font-semibold">Popcorn</h3>
+            <p class="text-gray-600">$1.99</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Coke -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🥤</div>
+            <h3 class="text-lg font-semibold">Coke</h3>
+            <p class="text-gray-600">$1.49</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Icecream -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍦</div>
+            <h3 class="text-lg font-semibold">Icecream</h3>
+            <p class="text-gray-600">$5.99</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Cookie -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍪</div>
+            <h3 class="text-lg font-semibold">Cookie</h3>
+            <p class="text-gray-600">$3.99</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+
+        <!-- Flan -->
+        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
+            <div class="text-5xl mb-2">🍮</div>
+            <h3 class="text-lg font-semibold">Flan</h3>
+            <p class="text-gray-600">$7.99</p>
+            <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4">
+        <button class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600">VIEW ORDER</button>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach(item => {
+            const addBtn = item.querySelector('button.bg-yellow-500.add-btn');
+            if (addBtn) {
+                addBtn.addEventListener('click', () => {
+                    const counterContainer = document.createElement('div');
+                    counterContainer.className = 'flex space-x-2 mt-2 counter-container';
+                    counterContainer.dataset.initial = 0;
+                    counterContainer.innerHTML = `
+                        <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
+                        <span class="text-lg count">0</span>
+                        <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
+                    `;
+                    addBtn.replaceWith(counterContainer);
+                });
+            }
+
+            const counterContainer = item.querySelector('.counter-container');
+            if (counterContainer) {
+                const removeBtn = counterContainer.querySelector('button.bg-red-500');
+                const addBtn = counterContainer.querySelector('button.bg-green-500');
+                const countSpan = counterContainer.querySelector('span.count');
+                let count = parseInt(countSpan.textContent) || parseInt(counterContainer.dataset.initial);
+
+                addBtn.addEventListener('click', () => {
+                    count++;
+                    countSpan.textContent = count;
+                });
+
+                removeBtn.addEventListener('click', () => {
+                    if (count > 0) {
+                        count--;
+                        countSpan.textContent = count;
+                    }
+                    if (count === 0) {
+                        const addButton = document.createElement('button');
+                        addButton.className = 'mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn';
+                        addButton.textContent = 'ADD';
+                        counterContainer.replaceWith(addButton);
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
-
-
-
