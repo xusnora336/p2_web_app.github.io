@@ -1,262 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Durger King Menu</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .menu-item {
-            transition: all 0.3s ease;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Menu</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fff;
+    }
 
-        .menu-item:hover {
-            transform: scale(1.05);
-        }
-    </style>
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .item {
+      text-align: center;
+    }
+
+    .item img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .price {
+      margin: 8px 0;
+      font-weight: bold;
+    }
+
+    .controls {
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .add-btn {
+      background-color: #ffb300;
+      color: white;
+    }
+
+    .counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .counter .btn {
+      background-color: #f44336;
+      color: white;
+      padding: 6px 10px;
+    }
+
+    .counter .btn.plus {
+      background-color: #ff9800;
+    }
+
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: orange;
+      color: white;
+      border-radius: 50%;
+      padding: 2px 6px;
+      font-size: 12px;
+    }
+
+    .view-order {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      background-color: #28a745;
+      color: white;
+      font-size: 18px;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      display: none;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
 
-<!-- Header -->
-<header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-2xl font-bold text-gray-800">Durger King</h1>
-    <div class="flex space-x-2">
-        <!-- Icons (no functionality for now) -->
-        <button class="text-gray-600 hover:text-gray-800">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
-            </svg>
-        </button>
-        <button class="text-gray-600 hover:text-gray-800">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
-        </button>
-    </div>
-</header>
+  <div class="menu" id="menu"></div>
 
-<!-- Menu Items Grid -->
-<main class="container mx-auto p-4 grid grid-cols-3 gap-4">
-    <!-- Har bir itemni yozishdan ko'ra qisqaroq qilish uchun misollar. Boshqa itemlar shunga o'xshash. -->
-    <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded absolute mt-2 ml-24">NEW</span>
-        <div class="text-5xl mb-2">🍰</div>
-        <h3 class="text-lg font-semibold">Cake</h3>
-        <p class="text-gray-600">$1.00</p>
-        <button class="mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn">ADD</button>
-    </div>
-    <!-- Qo‘shimcha mahsulotlar shu tartibda qo‘shiladi... -->
-    <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-        <div class="text-5xl mb-2">🍔</div>
-        <h3 class="text-lg font-semibold">Burger</h3>
-        <p class="text-gray-600">$4.99</p>
-        <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-            <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-            <span class="text-lg count">1</span>
-            <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-        </div>
-    </div>
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍟</div>
-            <h3 class="text-lg font-semibold">Fries</h3>
-            <p class="text-gray-600">$1.49</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
-    <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-        <div class="text-5xl mb-2">🌭 </div>
-        <h3 class="text-lg font-semibold">Hotdog</h3>
-        <p class="text-gray-600">$3.49</p>
-        <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-            <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-            <span class="text-lg count">1</span>
-            <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-        </div>
-    </div>
+  <div class="view-order" id="viewOrderBtn">VIEW ORDER</div>
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🌮 </div>
-            <h3 class="text-lg font-semibold">Taco</h3>
-            <p class="text-gray-600">$3.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+  <script>
+    const items = [
+      { name: "Cake", price: 1, img: "🍰" },
+      { name: "Burger", price: 4.99, img: "🍔" },
+      { name: "Fries", price: 1.49, img: "🍟" },
+      { name: "Hotdog", price: 3.49, img: "🌭" },
+      { name: "Taco", price: 3.99, img: "🌮" },
+      { name: "Pizza", price: 7.99, img: "🍕" },
+      { name: "Donut", price: 1.49, img: "🍩" },
+      { name: "Popcorn", price: 1.99, img: "🍿" },
+      { name: "Coke", price: 1.49, img: "🥤" },
+      { name: "Icecream", price: 5.99, img: "🍦" },
+      { name: "Cookie", price: 3.99, img: "🍪" },
+      { name: "Flan", price: 7.99, img: "🍮" },
+    ];
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍕 </div>
-            <h3 class="text-lg font-semibold">Pizza</h3>
-            <p class="text-gray-600">$7.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+    const menu = document.getElementById('menu');
+    const viewOrderBtn = document.getElementById('viewOrderBtn');
+    const state = {};
 
+    function renderMenu() {
+      menu.innerHTML = '';
+      items.forEach((item, index) => {
+        const count = state[item.name] || 0;
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍩</div>
-            <h3 class="text-lg font-semibold">Donut</h3>
-            <p class="text-gray-600">$1.49</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+        const itemEl = document.createElement('div');
+        itemEl.className = 'item';
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍿 </div>
-            <h3 class="text-lg font-semibold">Popcorn</h3>
-            <p class="text-gray-600">$1.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+        itemEl.innerHTML = `
+          <div style="position:relative;">
+            <div style="font-size:50px">${item.img}</div>
+            ${count > 0 ? `<div class="badge">${count}</div>` : ''}
+          </div>
+          <div>${item.name} · <strong>$${item.price}</strong></div>
+          <div class="controls">
+            ${count === 0 ? `
+              <button class="btn add-btn" onclick="addItem('${item.name}')">ADD</button>
+            ` : `
+              <div class="counter">
+                <button class="btn minus" onclick="removeItem('${item.name}')">−</button>
+                <span>${count}</span>
+                <button class="btn plus" onclick="addItem('${item.name}')">+</button>
+              </div>
+            `}
+          </div>
+        `;
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🥤 </div>
-            <h3 class="text-lg font-semibold">Coke</h3>
-            <p class="text-gray-600">$1.49</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+        menu.appendChild(itemEl);
+      });
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍦</div>
-            <h3 class="text-lg font-semibold">Icecream</h3>
-            <p class="text-gray-600">$5.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+      // Show "VIEW ORDER" if any item is added
+      const hasItems = Object.values(state).some(c => c > 0);
+      viewOrderBtn.style.display = hasItems ? 'block' : 'none';
+    }
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍪</div>
-            <h3 class="text-lg font-semibold">Cookie</h3>
-            <p class="text-gray-600">$3.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+    function addItem(name) {
+      state[name] = (state[name] || 0) + 1;
+      renderMenu();
+    }
 
-    <div>
-        <div class="menu-item bg-white rounded-lg shadow p-4 flex flex-col items-center">
-            <div class="text-5xl mb-2">🍮 </div>
-            <h3 class="text-lg font-semibold">Flan</h3>
-            <p class="text-gray-600">$7.99</p>
-            <div class="flex space-x-2 mt-2 counter-container" data-initial="1">
-                <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-                <span class="text-lg count">1</span>
-                <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            </div>
-        </div>
-    </div>
+    function removeItem(name) {
+      if (state[name]) {
+        state[name]--;
+        if (state[name] === 0) delete state[name];
+        renderMenu();
+      }
+    }
 
-
-
-    <!-- Qo‘shimcha mahsulotlar shu tartibda qo‘shiladi... -->
-</main>
-
-<!-- Footer -->
-<footer class="p-4">
-    <button class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-600">VIEW ORDER</button>
-</footer>
-
-<script>
-    // Script faqat sahifa yuklangandan keyin ishlaydi
-    document.addEventListener('DOMContentLoaded', () => {
-        // Barcha menu itemlarni olayapmiz
-        document.querySelectorAll('.menu-item').forEach(item => {
-            handleAddBtn(item);   // ADD tugmasini sozlash
-            handleCounter(item);  // + va - tugmalarni sozlash
-        });
-
-        // ADD tugmasi bosilganda counterga o‘tadi
-        function handleAddBtn(item) {
-            const addBtn = item.querySelector('.add-btn');
-            if (addBtn) {
-                addBtn.addEventListener('click', () => {
-                    // Yangi counter blok yaratamiz
-                    const counterContainer = document.createElement('div');
-                    counterContainer.className = 'flex space-x-2 mt-2 counter-container';
-                    counterContainer.dataset.initial = 1;
-                    counterContainer.innerHTML = `
-              <button class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">-</button>
-              <span class="text-lg count">1</span>
-              <button class="bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">+</button>
-            `;
-                    addBtn.replaceWith(counterContainer);
-                    handleCounter(item); // Yangi counterga eventlarni ulash
-                });
-            }
-        }
-
-        // + va - tugmalarga bosilganda ishlovchi funksiyalar
-        function handleCounter(item) {
-            const counter = item.querySelector('.counter-container');
-            if (!counter) return;
-
-            const minusBtn = counter.querySelector('button.bg-red-500');
-            const plusBtn = counter.querySelector('button.bg-green-500');
-            const countSpan = counter.querySelector('.count');
-
-            let count = parseInt(countSpan.textContent) || parseInt(counter.dataset.initial);
-
-            // + tugmasi bosilganda sonni oshiramiz
-            plusBtn.addEventListener('click', () => {
-                count++;
-                countSpan.textContent = count;
-            });
-
-
-            // - tugmasi bosilganda sonni kamaytiramiz va agar 0 bo‘lsa yana ADD tugmasiga qaytamiz
-            minusBtn.addEventListener('click', () => {
-                if (count > 0) {
-                    count--;
-                    countSpan.textContent = count;
-                }
-                if (count === 0) {
-                    const newAddBtn = document.createElement('button');
-                    newAddBtn.className = 'mt-2 bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 add-btn';
-                    newAddBtn.textContent = 'ADD';
-                    counter.replaceWith(newAddBtn);
-                    handleAddBtn(item); // ADD tugmasiga event ulaymiz
-                }
-            });
-        }
-    });
-</script>
+    renderMenu();
+  </script>
 </body>
 </html>
